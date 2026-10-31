@@ -16,10 +16,9 @@
   <img src="https://img.shields.io/github/license/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="License">
   <img src="https://img.shields.io/github/stars/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="GitHub Stars">
   <img src="https://img.shields.io/github/forks/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="GitHub Forks">
-  <img src="https://img.shields.io/github/issues/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Issues">
-  <img src="https://img.shields.io/github/issues-pr/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Pull Requests">
   <img src="https://img.shields.io/github/issues-raw/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Issues">
   <img src="https://img.shields.io/github/issues-pr-raw/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Pull Requests">
+  <img src="https://github.com/AvinabhDutta-Dev/used-cars-price-prediction/actions/workflows/tests.yml/badge.svg?branch=main" alt="Python CI">
 </p>
 
 <!-- Technology Badges -->
