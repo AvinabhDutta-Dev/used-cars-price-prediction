@@ -18,6 +18,8 @@
   <img src="https://img.shields.io/github/forks/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="GitHub Forks">
   <img src="https://img.shields.io/github/issues/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Issues">
   <img src="https://img.shields.io/github/issues-pr/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Pull Requests">
+  <img src="https://img.shields.io/github/issues-raw/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Issues">
+  <img src="https://img.shields.io/github/issues-pr-raw/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="Open Pull Requests">
 </p>
 
 <!-- Technology Badges -->
