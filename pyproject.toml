@@ -1,0 +1,7 @@
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+include = ["server/**/*.py", "tests/**/*.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

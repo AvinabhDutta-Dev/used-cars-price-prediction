@@ -1,4 +1,3 @@
-
 import importlib.util
 import sys
 import unittest
@@ -33,7 +32,6 @@ with patch("joblib.load", return_value=FakeModel()):
 
 
 class PredictionAPITests(unittest.TestCase):
-
     def setUp(self):
         self.client = server_module.app.test_client()
 

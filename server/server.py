@@ -1,4 +1,3 @@
-
 import math
 from pathlib import Path
 
@@ -6,7 +5,6 @@ import joblib
 import pandas as pd
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-
 
 app = Flask(__name__)
 CORS(app)
@@ -56,9 +54,9 @@ def health():
 @app.post("/predict")
 def predict():
     if not request.is_json:
-        return jsonify({
-            "error": "Send the request as JSON with Content-Type: application/json."
-        }), 415
+        return jsonify(
+            {"error": "Send the request as JSON with Content-Type: application/json."}
+        ), 415
 
     payload = request.get_json(silent=True)
 
@@ -66,15 +64,18 @@ def predict():
         return jsonify({"error": "The request body must be a JSON object."}), 400
 
     missing = [
-        field for field in FEATURE_COLUMNS
+        field
+        for field in FEATURE_COLUMNS
         if field not in payload or payload[field] is None
     ]
 
     if missing:
-        return jsonify({
-            "error": "Required fields are missing.",
-            "details": {field: "This field is required." for field in missing},
-        }), 400
+        return jsonify(
+            {
+                "error": "Required fields are missing.",
+                "details": {field: "This field is required." for field in missing},
+            }
+        ), 400
 
     cleaned = {}
     errors = {}
@@ -109,7 +110,7 @@ def predict():
             continue
 
         if number < 0 or (field in POSITIVE_FIELDS and number == 0):
-            errors[field] = "Enter a value greater than zero where required, otherwise zero or greater."
+            errors[field] = "Enter a positive value, or zero where permitted."
             continue
 
         if field in INTEGER_FIELDS and not number.is_integer():
@@ -119,10 +120,12 @@ def predict():
         cleaned[field] = int(number) if field in INTEGER_FIELDS else number
 
     if errors:
-        return jsonify({
-            "error": "Some input values are invalid.",
-            "details": errors,
-        }), 422
+        return jsonify(
+            {
+                "error": "Some input values are invalid.",
+                "details": errors,
+            }
+        ), 422
 
     input_data = pd.DataFrame([cleaned], columns=FEATURE_COLUMNS)
     predicted_price = float(model.predict(input_data)[0])
