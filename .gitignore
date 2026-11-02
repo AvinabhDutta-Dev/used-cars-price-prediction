@@ -30,3 +30,8 @@ Thumbs.db
 # Local configuration and credentials
 secrets/
 credentials/
+
+# Test coverage reports
+.coverage
+.coverage.*
+htmlcov/
