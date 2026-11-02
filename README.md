@@ -384,3 +384,18 @@ Potential areas for future development include:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+## Dataset Attribution and License
+
+This project uses the **CarDekho Used Car Dataset**, downloaded directly from Kaggle.
+
+- **Dataset:** [CarDekho Used Car Data](https://www.kaggle.com/datasets/manishkr1754/cardekho-used-car-data)
+- **Dataset publisher:** Manish Kumar (Kaggle)
+- **License indicated on Kaggle:** [Open Data Commons Database Contents License (DbCL) v1.0](https://opendatacommons.org/licenses/dbcl/1-0/)
+- **Related database license:** [Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/)
+
+The repository contains the original dataset and a cleaned version prepared for model training. The applicable Open Data Commons license terms and attribution requirements should be observed when using or redistributing these datasets.
+
+The project's source code is separately distributed under the MIT License.
+
