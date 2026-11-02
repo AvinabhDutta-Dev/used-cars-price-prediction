@@ -14,3 +14,19 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local configuration and credentials
+secrets/
+credentials/
