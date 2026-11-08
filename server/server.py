@@ -1,4 +1,3 @@
-
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -42,9 +41,7 @@ def predict():
         return jsonify(
             {
                 "error": "Required fields are missing.",
-                "details": {
-                    field: "This field is required." for field in error.fields
-                },
+                "details": {field: "This field is required." for field in error.fields},
             }
         ), 400
 

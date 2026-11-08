@@ -1,4 +1,3 @@
-
 import unittest
 
 import pandas as pd
@@ -67,9 +66,7 @@ class PredictionTests(unittest.TestCase):
         result = prepare_input(payload)
 
         self.assertEqual(result.iloc[0]["vehicle_age"], 9)
-        self.assertTrue(
-            pd.api.types.is_integer_dtype(result["vehicle_age"])
-        )
+        self.assertTrue(pd.api.types.is_integer_dtype(result["vehicle_age"]))
 
     def test_missing_field_raises_error(self):
         payload = self.valid_payload()

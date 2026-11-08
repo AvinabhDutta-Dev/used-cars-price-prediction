@@ -1,4 +1,3 @@
-
 import math
 from pathlib import Path
 
@@ -107,12 +106,8 @@ def prepare_input(payload):
             errors[field] = "The number must be finite."
             continue
 
-        if number < 0 or (
-            field in POSITIVE_FIELDS and number == 0
-        ):
-            errors[field] = (
-                "Enter a positive value, or zero where permitted."
-            )
+        if number < 0 or (field in POSITIVE_FIELDS and number == 0):
+            errors[field] = "Enter a positive value, or zero where permitted."
             continue
 
         if field in INTEGER_FIELDS and not number.is_integer():
@@ -123,9 +118,7 @@ def prepare_input(payload):
             errors[field] = "Enter at least 2 seats."
             continue
 
-        cleaned[field] = (
-            int(number) if field in INTEGER_FIELDS else number
-        )
+        cleaned[field] = int(number) if field in INTEGER_FIELDS else number
 
     if errors:
         raise InputValidationError(errors)
@@ -140,8 +133,6 @@ def predict_price(payload, model):
     predicted_price = float(model.predict(input_data)[0])
 
     if not math.isfinite(predicted_price):
-        raise InvalidPredictionError(
-            "The model returned an invalid prediction."
-        )
+        raise InvalidPredictionError("The model returned an invalid prediction.")
 
     return predicted_price
