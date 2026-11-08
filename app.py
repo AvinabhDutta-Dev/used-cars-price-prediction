@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 import gradio as gr
@@ -20,9 +19,7 @@ from server.prediction import (
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 
-DATASET_PATH = (
-    PROJECT_ROOT / "data" / "cleaned_cardekho_dataset.csv"
-)
+DATASET_PATH = PROJECT_ROOT / "data" / "cleaned_cardekho_dataset.csv"
 
 # Load the trained model once when the application starts.
 model = load_model()
@@ -31,9 +28,7 @@ model = load_model()
 df = pd.read_csv(DATASET_PATH)
 
 BRAND_MODEL_MAP: dict[str, list[str]] = {
-    str(brand): sorted(
-        group["model"].dropna().astype(str).unique().tolist()
-    )
+    str(brand): sorted(group["model"].dropna().astype(str).unique().tolist())
     for brand, group in df.groupby("brand")
 }
 
@@ -66,7 +61,6 @@ def update_brand(brand):
         ),
         None,
     )
-
 
 
 def update_car_image(brand, selected_model):
@@ -134,7 +128,6 @@ def predict_car_price(
 ):
     """Validate the inputs and predict the selling price."""
 
-
     payload = {
         "brand": brand,
         "vehicle_age": vehicle_age,
@@ -153,8 +146,7 @@ def predict_car_price(
     payload = {
         field: value
         for field, value in payload.items()
-        if value is not None
-        and not (isinstance(value, str) and not value.strip())
+        if value is not None and not (isinstance(value, str) and not value.strip())
     }
 
     try:
@@ -174,10 +166,7 @@ def predict_car_price(
         )
 
     except InputValidationError as error:
-        return (
-            "### Invalid Input\n"
-            f"{error.details}"
-        )
+        return f"### Invalid Input\n{error.details}"
 
     except InvalidPredictionError:
         return (
@@ -201,7 +190,6 @@ def predict_car_price(
 with gr.Blocks(
     title="Used Cars Price Prediction",
 ) as demo:
-
     gr.Markdown(
         """
         # 🚗 Used Cars Price Prediction
@@ -215,10 +203,8 @@ with gr.Blocks(
     )
 
     with gr.Row():
-
         # LEFT COLUMN: INPUT FORM
         with gr.Column(scale=6):
-
             gr.Markdown("### Car Information")
 
             brand_dropdown = gr.Dropdown(
@@ -278,7 +264,6 @@ with gr.Blocks(
                     placeholder="e.g. 5",
                 )
 
-
             gr.Markdown("### Additional Details")
 
             seller_type = gr.Dropdown(
@@ -290,7 +275,7 @@ with gr.Blocks(
                 value=None,
                 label="Seller Type",
                 info="Example: Individual",
-)
+            )
 
             fuel_type = gr.Dropdown(
                 choices=[
@@ -322,7 +307,6 @@ with gr.Blocks(
 
         # RIGHT COLUMN: CAR IMAGE AND RESULT
         with gr.Column(scale=5):
-
             gr.Markdown("### Selected Vehicle")
 
             car_image = gr.Image(
@@ -333,9 +317,7 @@ with gr.Blocks(
                 height=300,
             )
 
-            gr.Markdown(
-                "### Prediction Result"
-            )
+            gr.Markdown("### Prediction Result")
 
             prediction_output = gr.Markdown(
                 "Your estimated selling price will appear here."
