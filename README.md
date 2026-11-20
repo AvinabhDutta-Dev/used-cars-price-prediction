@@ -11,6 +11,18 @@
   A machine learning-powered web application that estimates the selling price of used cars based on vehicle specifications and other relevant features.
 </p>
 
+
+## 🚀 Live Demo
+
+Try the deployed application:
+
+**[Launch Used Cars Price Prediction on Hugging Face Spaces](https://huggingface.co/spaces/AvinabhDutta-Dev/used-cars-price-prediction)**
+
+The application provides an interactive Gradio interface for estimating used-car resale prices in Indian Rupees (INR). Enter the vehicle specifications to receive a predicted selling price.
+
+The hosted application is deployed using Hugging Face Spaces. For deployment details, see the [Hugging Face Spaces Deployment Guide](docs/deployment/huggingface-spaces.md).
+
+
 <!-- GitHub Status Badges -->
 <p align="center">
   <img src="https://img.shields.io/github/license/AvinabhDutta-Dev/used-cars-price-prediction?style=flat-square" alt="License">
@@ -38,6 +50,7 @@
 
 ## Table of Contents
 
+- [Live Demo](#-live-demo)
 - [Application Preview](#application-preview)
 - [Features](#features)
 - [How It Works](#how-it-works)
@@ -85,6 +98,8 @@
 - **REST API:** Flask backend provides prediction and health-check endpoints.
 - **Input Validation:** Checks missing, invalid, and inappropriate input values.
 - **Local Execution:** Run the frontend and backend locally without a separate frontend build process.
+- **Interactive Gradio Application:** Provides an alternative interface for entering vehicle specifications and obtaining predicted resale prices.
+- **Hugging Face Deployment:** The Gradio application is publicly accessible through Hugging Face Spaces.
 
 ## How It Works
 
@@ -120,6 +135,19 @@ Display Result
 ```
 
 ---
+
+### Gradio Application Workflow
+
+The deployed Gradio application follows a similar prediction process through a separate interactive interface:
+
+1. Open the application on Hugging Face Spaces.
+2. Select the car brand and model and enter the vehicle specifications.
+3. Submit the details through the Gradio interface.
+4. The application processes the inputs using the trained machine learning pipeline.
+5. The predicted resale price is displayed in Indian Rupees (INR).
+
+Unlike the original Flask interface, the Gradio application does not require users to start a local backend server or open a separate HTML file.
+
 
 ## Dataset
 
@@ -339,6 +367,31 @@ The tests cover:
 ```text
 used-cars-price-prediction/
 │
+├── .github/
+│   ├── dependabot.yml
+│   └── workflows/
+│       └── tests.yml
+│
+├── assets/
+│   └── cars/
+│       ├── optimized/
+│       │   ├── ford_ecosport.webp
+│       │   ├── honda_amaze.webp
+│       │   ├── honda_city.webp
+│       │   ├── hyundai_creta.webp
+│       │   ├── hyundai_i20.webp
+│       │   ├── hyundai_verna.webp
+│       │   ├── mahindra_scorpio.webp
+│       │   ├── mahindra_xuv500.webp
+│       │   ├── maruti_alto.webp
+│       │   ├── maruti_baleno.webp
+│       │   ├── maruti_swift.webp
+│       │   ├── maruti_wagon_r.webp
+│       │   ├── tata_nexon.webp
+│       │   ├── tata_tiago.webp
+│       │   └── volkswagen_polo.webp
+│       └── IMAGE_SOURCES.md
+│
 ├── client/
 │   ├── UCPPM.html
 │   ├── styles.css
@@ -351,6 +404,9 @@ used-cars-price-prediction/
 │   └── cleaned_cardekho_dataset.csv
 │
 ├── docs/
+│   ├── deployment/
+│   │   └── huggingface-spaces.md
+│   │
 │   └── images/
 │       ├── hero-banner.png
 │       ├── prediction-form.png
@@ -361,15 +417,25 @@ used-cars-price-prediction/
 │   └── car_price_prediction_model.pkl
 │
 ├── server/
+│   ├── __init__.py
+│   ├── car_images.py
+│   ├── prediction.py
 │   └── server.py
 │
 ├── tests/
+│   ├── test_car_images.py
+│   ├── test_prediction.py
 │   └── test_server.py
 │
-├── requirements.txt
-├── .gitignore
+├── app.py
+├── CONTRIBUTING.md
 ├── LICENSE
-└── README.md
+├── README.md
+├── SECURITY.md
+├── pyproject.toml
+├── requirements-dev.txt
+├── requirements.txt
+└── .gitignore
 ```
 
 ## Future Improvements
